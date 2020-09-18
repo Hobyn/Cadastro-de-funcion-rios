@@ -5,6 +5,23 @@
 <!DOCTYPE html>
 <html lang="pt-br">
    <head>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script>
+         $(document).ready(function(){
+         
+         
+         
+         $('#todos').click(function(){
+          var val = this.checked;
+          
+          $('.text-center').each(function(){
+            $(this).prop('checked',val);
+         
+          });
+         
+         });
+         });
+      </script>
       <meta charset="utf-8">
       <title>Contato</title>
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,69 +30,41 @@
       <head>
    <body>
       <?php
-$sql = "SELECT * FROM cadastro";
-$where = "";
-
-if(isset($_POST['nome'])) {
-     $pesquisar = $_POST['nome'] ;
-        
-     $where .= " nome LIKE '%$pesquisar%'";
-}
-
-if(isset($_POST['mae'])) {
-     $pesquisar = $_POST['mae'] ;           
-
-     // esta linha testa se a variável where já tem conteúdo, se sim adiciona o 
-     // AND caso não inicia ela vazia
-     $where = isempty($where) ? "" : $where . " AND ";
-     $sql .= " mae LIKE '%$pesquisar%'";
-}
-
-if(isset($_POST['cidade'])) {
-     $pesquisar = $_POST['cidade'] ;           
-
-     // esta linha testa se a variável where já tem conteúdo, se sim adiciona o 
-     // AND caso não inicia ela vazia
-     $where = isempty($where) ? "" : $where . " AND ";
-     $sql .= " cidade LIKE '%$pesquisar%'";
-
-
-
-
-    // finaliza a construção da query, se where for vazio somente limita o resultado
-   // caso contrário adiciona a cláusula
-   $sql .= empty($where) ? "" : " WHERE " . $where;
-   $sql .= " LIMIT 30 ";
-     
-}else{
-
-//Verificar se esta sendo passado na URL a página atual, senão é atribuido a pagina
-$pagina=(isset($_GET['pagina'])) ? $_GET['pagina'] : 1;
-				
-//Selecionar todos os itens da tabela 
-$result_msg_contato = "SELECT * FROM cadastro";
-$resultado_msg_contatos = mysqli_query($conn , $result_msg_contato);
-
-//Contar o total de itens
-$total_msg_contatos = mysqli_num_rows($resultado_msg_contatos);
-
-//Seta a quantidade de itens por página
-$quantidade_pg = 20;
-
-//calcular o número de páginas 
-$num_pagina = ceil($total_msg_contatos/$quantidade_pg);
-
-//calcular o inicio da visualizao	
-$inicio = ($quantidade_pg*$pagina)-$quantidade_pg;
-
-//Selecionar  os itens da página
-$result_msg_contatos = "SELECT * FROM cadastro limit $inicio, $quantidade_pg";
-$resultado_msg_contatos = mysqli_query($conn , $result_msg_contatos);
-$total_msg_contatos = mysqli_num_rows($resultado_msg_contatos);
-
-       }
-          
-                    ?>
+         if(isset($_POST['pesquisa'])) {
+              $pesquisar = $_POST['pesquisa'] ;
+              $sql = "SELECT * FROM cadastro
+               WHERE nome LIKE '%$pesquisar%' OR bairro LIKE '%$pesquisar%' OR indicacao LIKE '%$pesquisar%' OR dtnasc LIKE '%$pesquisar%'";
+         }else{
+            $sql = "SELECT * FROM cadastro";
+         }
+         
+         
+         //Verificar se esta sendo passado na URL a página atual, senão é atribuido a pagina
+         $pagina=(isset($_GET['pagina'])) ? $_GET['pagina'] : 1;
+         				
+         //Selecionar todos os itens da tabela 
+         $result_msg_contato = $sql;
+         $resultado_msg_contatos = mysqli_query($conn , $result_msg_contato);
+         
+         //Contar o total de itens
+         $total_msg_contatos = mysqli_num_rows($resultado_msg_contatos);
+         
+         //Seta a quantidade de itens por página
+         $quantidade_pg = 100;
+         
+         //calcular o número de páginas 
+         $num_pagina = ceil($total_msg_contatos/$quantidade_pg);
+         
+         //calcular o inicio da visualizao	
+         $inicio = ($quantidade_pg*$pagina)-$quantidade_pg;
+         
+         //Selecionar  os itens da página
+         $result_msg_contatos = $sql." LIMIT $inicio, $quantidade_pg";
+         $resultado_msg_contatos = mysqli_query($conn , $result_msg_contatos);
+         $total_msg_contatos = mysqli_num_rows($resultado_msg_contatos);
+         
+                
+                  ?>
       <div class="container theme-showcase" role="main">
          <div class="page-header">
             <h1>Lista de Cadastro</h1>
@@ -84,7 +73,7 @@ $total_msg_contatos = mysqli_num_rows($resultado_msg_contatos);
             <div class="form-group">
                <label class="col-sm-2 control-label">Nome</label>
                <div class="col-sm-8">
-                  <input type="text"  name="nome"   class="form-control"  placeholder="Nome dos Usuários" value="">
+                  <input type="text"  name="pesquisa"   class="form-control"  placeholder="Nome dos Usuários" value="">
                </div>
                <div class="col-sm-2">
                   <button type="submit" class="btn btn-info">Pesquisar</button>
@@ -95,9 +84,11 @@ $total_msg_contatos = mysqli_num_rows($resultado_msg_contatos);
          <form method="POST" action="gerar_planilha_especifica.php">
             <div class="row espaco">
                <div class="pull-right">					
+                  <a href="index.php"><button type='button' class='btn btn-sm btn-primary'>Inicio Painel</button></a>
                   <a href="../../index.php"><button type='button' class='btn btn-sm btn-success'>Cadastrar</button></a>
-                  <a href="gerar_planilha.php"><button type='button' class='btn btn-sm btn-danger'>Gerar Excel</button></a>
-                  <input type="submit" value="Excel Especifico" class='btn btn-sm btn-warning'>
+
+                  <a href="gerar_planilha.php"><button type='button' class='btn btn-sm btn-danger'>Toda Base Relatório</button></a>
+                  <input type="submit" value="Relatório Especifico" class='btn btn-sm btn-warning'>
                </div>
             </div>
             <div class="row">
@@ -124,12 +115,13 @@ $total_msg_contatos = mysqli_num_rows($resultado_msg_contatos);
                            <th class="text-center">cep</th>
                         </tr>
                      </thead>
+                     <div><input id="todos" type="checkbox" name="nameAll" /> Marcar / desmarcar todos </div>
                      <tbody>
                         <?php while($row_msg_contatos = mysqli_fetch_assoc($resultado_msg_contatos)){?>
                         <tr>
                            <?php $id = $row_msg_contatos["id"]; ?>
                            <td class="text-center">
-                              <?php echo "<input type='radio' name='msg_contato[$id]' value='1'" ?>
+                              <?php echo "<input type='checkbox' name='msg_contato[$id]' value='1'" ?>
                            <td class="text-center"><?php echo $row_msg_contatos["id"]; ?></td>
                            <td class="text-center"><?php echo $row_msg_contatos["nome"]; ?></td>
                            <td class="text-center"><?php echo $row_msg_contatos["mae"]; ?></td>
@@ -147,9 +139,14 @@ $total_msg_contatos = mysqli_num_rows($resultado_msg_contatos);
                            <td class="text-center"><?php echo $row_msg_contatos["estado"]; ?></td>
                            <td class="text-center"><?php echo $row_msg_contatos["indicacao"]; ?></td>
                            <td class="text-center"><?php echo $row_msg_contatos["cep"]; ?></td>
-                           <td class="text-center">	
-                              <?php echo
-                                 "<a href='proc_apagar_usuario.php?id=" . $row_msg_contatos['id'] . "'>Apagar</a><br><hr>";
+                           <td class="text-center">
+                           <?php	
+                           echo "<a href='edit_usuario.php?id=" . $row_msg_contatos['id'] . "'>Editar</a><br><hr>";
+                           ?>
+                              <?php 
+                                 echo"<a href='proc_apagar_usuario.php?id=" . $row_msg_contatos['id'] . "'>Apagar</a><br><hr>";
+                                
+                                 
                                  ?>
                         </tr>
                         <?php } ?>
@@ -159,7 +156,7 @@ $total_msg_contatos = mysqli_num_rows($resultado_msg_contatos);
             </div>
          </form>
          <?php
-            if(!isset($_POST['nome'])){
+            if(!isset($_POST['pesquisa'])){
             //Verificar pagina anterior e posterior
             $pagina_anterior = $pagina - 1;
             $pagina_posterior = $pagina + 1;

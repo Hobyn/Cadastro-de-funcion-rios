@@ -18,27 +18,14 @@
 		$html = '';
 		$html .= '<table border="1">';
 		$html .= '<tr>';
-		$html .= '<td colspan="5">Planilha sde Contatos</tr>';
+		$html .= '<td colspan="2">Planilhas de Contatos</tr>';
 		$html .= '</tr>';
 		
 		
 		$html .= '<tr>';
-		$html .= '<td><b>id</b></td>';
+
 		$html .= '<td><b>Nome Associado</b></td>';
-		$html .= '<td><b>Nome Mãe</b></td>';
-		$html .= '<td><b>Nome Pai</b></td>';
-		$html .= '<td><b>cpf</b></td>';
-		$html .= '<td><b>rg</b></td>';
-		$html .= '<td><b>email</b></td>';
-		$html .= '<td><b>Data de nascimento</b></td>';
-		$html .= '<td><b>telefone</b></td>';
-		$html .= '<td><b>Whatsapp</b></td>';
-		$html .= '<td><b>rua</b></td>';
-		$html .= '<td><b>numero</b></td>';
-		$html .= '<td><b>bairro</b></td>';
-		$html .= '<td><b>cidade</b></td>';
-		$html .= '<td><b>estado</b></td>';
-		$html .= '<td><b>cep</b></td>';
+		$html .= '<td><b>Telefone</b></td>';
 
 
 		$html .= '</tr>';
@@ -49,22 +36,9 @@
 		
 		while($row_msg_contatos = mysqli_fetch_assoc($resultado_msg_contatos)){
 			$html .= '<tr>';
-			$html .= '<td>'.$row_msg_contatos["id"].'</td>';
 			$html .= '<td>'.$row_msg_contatos["nome"].'</td>';
-			$html .= '<td>'.$row_msg_contatos["pai"].'</td>';
-			$html .= '<td>'.$row_msg_contatos["mae"].'</td>';
-			$html .= '<td>'.$row_msg_contatos["cpf"].'</td>';
-			$html .= '<td>'.$row_msg_contatos["rg"].'</td>';
-			$html .= '<td>'.$row_msg_contatos["email"].'</td>';
-			$html .= '<td>'.$row_msg_contatos["dtnasc"].'</td>';
-			$html .= '<td>'.$row_msg_contatos["telefone"].'</td>';
 			$html .= '<td>'.$row_msg_contatos["zap"].'</td>';
-			$html .= '<td>'.$row_msg_contatos["rua"].'</td>';
-			$html .= '<td>'.$row_msg_contatos["numero"].'</td>';
-			$html .= '<td>'.$row_msg_contatos["bairro"].'</td>';
-			$html .= '<td>'.$row_msg_contatos["cidade"].'</td>';
-			$html .= '<td>'.$row_msg_contatos["estado"].'</td>';
-			$html .= '<td>'.$row_msg_contatos["cep"].'</td>';
+
 			$html .= '</tr>';
 			;
 		}
