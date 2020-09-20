@@ -220,7 +220,7 @@
             </fieldset>
             
          </form>
-         <form action="../admin/index.php">
+         <form action="../painel/index.php">
             <input type="submit"  class="btn btn-danger" style="   
                color: #fff;
                background-color: #E6C972!important;

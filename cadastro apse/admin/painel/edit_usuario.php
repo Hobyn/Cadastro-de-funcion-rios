@@ -43,34 +43,34 @@ $row_usuario = mysqli_fetch_assoc($resultado_usuario);
 			<input type="" name="rg" placeholder="Digite o seu Rg" value="<?php echo $row_usuario['rg']; ?>"><br><br>
 
 			<label>Data de Nascimento: </label>
-			<input type="" name="dtnasc" placeholder="Digite o seu melhor e-mail" value="<?php echo $row_usuario['dtnasc']; ?>"><br><br>
+			<input type="" name="dtnasc" placeholder="Data de Nascimento" value="<?php echo $row_usuario['dtnasc']; ?>"><br><br>
 
 			<label>Telefone, : </label>
-			<input type="" name="telefone" placeholder="Digite o seu melhor e-mail" value="<?php echo $row_usuario['telefone']; ?>"><br><br>
+			<input type="" name="telefone" placeholder="Digite o seu Telefone" value="<?php echo $row_usuario['telefone']; ?>"><br><br>
 
 			<label>Whatsapp: </label>
-			<input type="" name="zap" placeholder="Digite o seu melhor e-mail" value="<?php echo $row_usuario['zap']; ?>"><br><br>
+			<input type="" name="zap" placeholder="Digite o wHATSAPP" value="<?php echo $row_usuario['zap']; ?>"><br><br>
 
 			<label>rua: </label>
-			<input type="" name="rua" placeholder="Digite o seu melhor e-mail" value="<?php echo $row_usuario['rua']; ?>"><br><br>
+			<input type="" name="rua" placeholder="Digite A rua" value="<?php echo $row_usuario['rua']; ?>"><br><br>
 
 			<label>numero: </label>
-			<input type="" name="numero" placeholder="Numero da rua" value="<?php echo $row_usuario['numero']; ?>"><br><br>
+			<input type="" name="numero" placeholder="Numero Numero" value="<?php echo $row_usuario['numero']; ?>"><br><br>
 
 			<label>bairro: </label>
-			<input type="" name="bairro" placeholder="Digite o seu melhor e-mail" value="<?php echo $row_usuario['bairro']; ?>"><br><br>
+			<input type="" name="bairro" placeholder="Digite o bairro" value="<?php echo $row_usuario['bairro']; ?>"><br><br>
 
 			<label>cidade: </label>
-			<input type="" name="cidade" placeholder="Digite o seu melhor e-mail" value="<?php echo $row_usuario['cidade']; ?>"><br><br>
+			<input type="" name="cidade" placeholder="Digite a cidade" value="<?php echo $row_usuario['cidade']; ?>"><br><br>
 
 			<label>estado: </label>
-			<input type="" name="estado" placeholder="Digite o seu melhor e-mail" value="<?php echo $row_usuario['estado']; ?>"><br><br>
+			<input type="" name="estado" placeholder="Digite o estado value= "<?php echo $row_usuario['estado']; ?>"><br><br>
 
 			<label>indicacao: </label>
-			<input type="" name="indicacao" placeholder="Digite o seu melhor e-mail" value="<?php echo $row_usuario['indicacao']; ?>"><br><br>
+			<input type="" name="indicacao" placeholder="Digite a indicacao" value="<?php echo $row_usuario['indicacao']; ?>"><br><br>
 
 			<label>cep: </label>
-			<input type="" name="cep" placeholder="Digite o seu melhor e-mail" value="<?php echo $row_usuario['cep']; ?>"><br><br>
+			<input type="" name="cep" placeholder="Digite o cep" value="<?php echo $row_usuario['cep']; ?>"><br><br>
 			
 			
 			<input type="submit" value="Editar/Salvar">

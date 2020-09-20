@@ -85,10 +85,11 @@
             <div class="row espaco">
                <div class="pull-right">					
                   <a href="index.php"><button type='button' class='btn btn-sm btn-primary'>Inicio Painel</button></a>
-                  <a href="../../index.php"><button type='button' class='btn btn-sm btn-success'>Cadastrar</button></a>
+                  <a href="../../cadastro_apse/cadastro.php"><button type='button' class='btn btn-sm btn-success'>Cadastrar</button></a>
 
                   <a href="gerar_planilha.php"><button type='button' class='btn btn-sm btn-danger'>Toda Base Relatório</button></a>
                   <input type="submit" value="Relatório Especifico" class='btn btn-sm btn-warning'>
+                  <a href="../../index.php"><button type='button' class='btn btn-sm btn-danger'>Sair</button></a>
                </div>
             </div>
             <div class="row">
@@ -141,7 +142,7 @@
                            <td class="text-center"><?php echo $row_msg_contatos["cep"]; ?></td>
                            <td class="text-center">
                            <?php	
-                           echo "<a href='edit_usuario.php?id=" . $row_msg_contatos['id'] . "'>Editar</a><br><hr>";
+                           echo "<a href='edit2.php?id=" . $row_msg_contatos['id'] . "'>Editar</a><br><hr>";
                            ?>
                               <?php 
                                  echo"<a href='proc_apagar_usuario.php?id=" . $row_msg_contatos['id'] . "'>Apagar</a><br><hr>";
