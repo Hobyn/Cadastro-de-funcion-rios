@@ -106,9 +106,10 @@
                            <th class="text-center">email</th>
                            <th class="text-center">Data Nasc</th>
                            <th class="text-center">telefone</th>
-                           <th class="text-center">Whatsapp</th>
+                           <th class="text-center">Numero Whatsapp</th>
                            <th class="text-center">rua</th>
                            <th class="text-center">numero</th>
+                           <th class="text-center">Complemento</th>
                            <th class="text-center">bairro</th>
                            <th class="text-center">cidade</th>
                            <th class="text-center">estado</th>
@@ -135,11 +136,13 @@
                            <td class="text-center"><?php echo $row_msg_contatos["zap"]; ?></td>
                            <td class="text-center"><?php echo $row_msg_contatos["rua"]; ?></td>
                            <td class="text-center"><?php echo $row_msg_contatos["numero"]; ?></td>
+                           <td class="text-center"><?php echo $row_msg_contatos["comp"]; ?></td>
                            <td class="text-center"><?php echo $row_msg_contatos["bairro"]; ?></td>
                            <td class="text-center"><?php echo $row_msg_contatos["cidade"]; ?></td>
                            <td class="text-center"><?php echo $row_msg_contatos["estado"]; ?></td>
                            <td class="text-center"><?php echo $row_msg_contatos["indicacao"]; ?></td>
                            <td class="text-center"><?php echo $row_msg_contatos["cep"]; ?></td>
+                           
                            <td class="text-center">
                            <?php	
                            echo "<a href='edit2.php?id=" . $row_msg_contatos['id'] . "'>Editar</a><br><hr>";

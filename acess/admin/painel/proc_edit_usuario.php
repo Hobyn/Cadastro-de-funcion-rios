@@ -19,11 +19,12 @@ $cidade = filter_input(INPUT_POST, 'cidade', FILTER_SANITIZE_STRING);
 $estado = filter_input(INPUT_POST, 'estado', FILTER_SANITIZE_STRING);
 $indicacao = filter_input(INPUT_POST, 'indicacao', FILTER_SANITIZE_STRING);
 $cep = filter_input(INPUT_POST, 'cep', FILTER_SANITIZE_STRING);
+$comp = filter_input(INPUT_POST, 'comp', FILTER_SANITIZE_STRING);
 
 //echo "Nome: $nome <br>";
 //echo "E-mail: $email <br>";
 
-$result_usuario = "UPDATE cadastro SET nome='$nome', email='$email', mae='$mae' , pai='$pai', cpf='$cpf', email='$email' , rg='$rg' , dtnasc='$dtnasc' , telefone='$telefone' , zap='$zap' , rua='$rua' ,numero ='$numero' ,bairro='$bairro' , cidade='$cidade', estado='$estado' , indicacao='$indicacao', cep='$cep', modified=NOW() WHERE id='$id'";
+$result_usuario = "UPDATE cadastro SET nome='$nome', email='$email', mae='$mae' , pai='$pai', cpf='$cpf', email='$email' , rg='$rg' , dtnasc='$dtnasc' , telefone='$telefone' , zap='$zap' , rua='$rua' ,numero ='$numero' ,bairro='$bairro' , cidade='$cidade', estado='$estado' , indicacao='$indicacao', cep='$cep', comp='$comp' ,modified=NOW() WHERE id='$id'";
 $resultado_usuario = mysqli_query($conn, $result_usuario);
 
 if(mysqli_affected_rows($conn)){
@@ -33,3 +34,5 @@ if(mysqli_affected_rows($conn)){
 	$_SESSION['msg'] = "<p style='color:red;'>Usuário não foi editado com sucesso</p>";
 	header("Location: editar.php?id=$id");
 }
+
+?>

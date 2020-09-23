@@ -18,10 +18,11 @@ $cidade = filter_input(INPUT_POST, 'cidade', FILTER_SANITIZE_STRING);
 $estado = filter_input(INPUT_POST, 'estado', FILTER_SANITIZE_STRING);
 $indicacao = filter_input(INPUT_POST, 'indicacao', FILTER_SANITIZE_STRING);
 $cep = filter_input(INPUT_POST, 'cep', FILTER_SANITIZE_STRING);
+$comp = filter_input(INPUT_POST, 'comp', FILTER_SANITIZE_STRING);
 //echo "Nome: $nome <br>";
 //echo "E-mail: $email <br>";
 
-$result_usuario = "INSERT INTO cadastro (nome, mae, pai, cpf, email , rg, dtnasc, telefone, zap, rua, numero, bairro, cidade, estado, indicacao, cep, created) VALUES ('$nome', '$mae','$pai', '$cpf', '$email', '$rg', '$dtnasc', '$telefone', '$zap', '$rua', '$numero', '$bairro', '$cidade', '$estado', '$indicacao', '$cep',  NOW())";
+$result_usuario = "INSERT INTO cadastro (nome, mae, pai, cpf, email , rg, dtnasc, telefone, zap, rua, numero, bairro, cidade, estado, indicacao, cep, comp, created) VALUES ('$nome', '$mae','$pai', '$cpf', '$email', '$rg', '$dtnasc', '$telefone', '$zap', '$rua', '$numero', '$bairro', '$cidade', '$estado', '$indicacao', '$cep', '$comp',  NOW())";
 $resultado_usuario = mysqli_query($conn, $result_usuario);
 
 if(mysqli_insert_id($conn)){

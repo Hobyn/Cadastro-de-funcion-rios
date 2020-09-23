@@ -160,7 +160,7 @@ $row_usuario = mysqli_fetch_assoc($resultado_usuario);
                         <div class="col-md-4">
                            <div class="input-group">
                               <span class="input-group-addon">Rua</span>
-                              <input id="rua" name="rua" class="form-control" placeholder="" required=""  type="text"value="<?php echo $row_usuario['rua']; ?>">
+                              <input id="rua" name="rua" class="form-control" placeholder="" required="" readonly="readonly" type="text" value="<?php echo $row_usuario['rua']; ?>">
                            </div>
                         </div>
                         <div class="col-md-2">
@@ -174,24 +174,34 @@ $row_usuario = mysqli_fetch_assoc($resultado_usuario);
                         </div>
                         <div class="col-md-3">
                            <div class="input-group">
-                              <span class="input-group-addon">Bairro</span>
-                              <input id="bairro" name="bairro" class="form-control" placeholder="" required=""  type="text" value="<?php echo $row_usuario['bairro']; ?>">
+                              <span class="input-group-addon">
+                              Complemento 
+                              </span>
+                              <input id="comp" name="comp" placeholder="Complemento" class="form-control input-md" type="text" value="<?php echo $row_usuario['comp']; ?>">
                            </div>
                         </div>
                      </div>
                      <div class="form-group">
                         <label class="col-md-2 control-label" for="prependedtext"></label>
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                            <div class="input-group">
-                              <span class="input-group-addon">Cidade</span>
-                              <input id="cidade" name="cidade" class="form-control" placeholder="" required=""   type="text" value="<?php echo $row_usuario['cidade']; ?>">
+                              <span class="input-group-addon">Bairro</span>
+                              <input id="bairro" name="bairro" class="form-control" placeholder=""    type="text" value="<?php echo $row_usuario['bairro']; ?>">
                            </div>
                         </div>
-                        <div class="col-md-2">
+                        <div class="col-md-3">
+                           <div class="input-group">
+                              <span class="input-group-addon">Cidade</span>
+                              <input id="cidade" name="cidade" class="form-control" placeholder=""   type="text" value="<?php echo $row_usuario['cidade']; ?>">
+                           </div>
+                        </div>
+                        <div class="col-md-3">
                            <div class="input-group">
                               <span class="input-group-addon">Estado</span>
-                              <input id="estado" name="estado" class="form-control" placeholder="" required=""   type="text" value= "<?php echo $row_usuario['estado']; ?>" >
+                              <input id="estado" name="estado" class="form-control" placeholder=""  type="text" value="<?php echo $row_usuario['estado']; ?>">
                            </div>
+                        </div>
+                     
                         </div>
                      </div>
                      <div class="form-group">

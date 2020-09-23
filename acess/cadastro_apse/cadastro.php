@@ -14,6 +14,13 @@
       <link rel="stylesheet" href="css/style.css">
       <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
       <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+      <script src="https://igorescobar.github.io/jQuery-Mask-Plugin/js/jquery.mask.min.js"></script>
+      <script>
+         $(document).ready(function(){
+         $('#zap').mask('55 00 00000-0000');
+         });
+      </script>
    </head>
    <body>
       <!DOCTYPE html>
@@ -100,7 +107,7 @@
                            <h11>*</h11>
                         </label>
                         <div class="col-md-2">
-                           <input id="dtnasc" name="dtnasc" placeholder="DD/MM/AAAA" class="form-control input-md" required="" type="text" maxlength="10" OnKeyPress="formatar('##/##/####', this)" onBlur="showhide()">
+                           <input id="dtnasc" name="dtnasc" placeholder="AAAA/MM/DD" class="form-control input-md" required="" type="text" maxlength="10" OnKeyPress="formatar('####-##-##', this)" onBlur="showhide()">
                         </div>
                      </div>
                      <!-- Prepended text-->
@@ -120,8 +127,7 @@
                         <div class="col-md-2">
                            <div class="input-group">
                               <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-                              <input id="zap" name="zap" class="form-control" placeholder="XX XXXXX-XXXX" type="text" maxlength="13"  pattern="\[0-9]{2}\ [0-9]{4,6}-[0-9]{3,4}$"
-                                 OnKeyPress="formatar('## #####-####', this)">
+                              <input id="zap" name="zap" class="form-control" placeholder="55 81 XXXXX-XXXX" type="text" maxlength="13"  >
                            </div>
                         </div>
                      </div>
@@ -171,54 +177,57 @@
                         </div>
                         <div class="col-md-3">
                            <div class="input-group">
-                              <span class="input-group-addon">Bairro</span>
-                              <input id="bairro" name="bairro" class="form-control" placeholder="" required="" readonly="readonly" type="text">
+                              <span class="input-group-addon">
+                              Complemento 
+                              </span>
+                              <input id="comp" name="comp" placeholder="Complemento" class="form-control input-md" required="" type="text">
                            </div>
                         </div>
                      </div>
                      <div class="form-group">
                         <label class="col-md-2 control-label" for="prependedtext"></label>
-                        <div class="col-md-4">
+                        <div class="col-md-3">
+                           <div class="input-group">
+                              <span class="input-group-addon">Bairro</span>
+                              <input id="bairro" name="bairro" class="form-control" placeholder="" required=""  readonly="readonly" type="text">
+                           </div>
+                        </div>
+                        <div class="col-md-3">
                            <div class="input-group">
                               <span class="input-group-addon">Cidade</span>
                               <input id="cidade" name="cidade" class="form-control" placeholder="" required=""  readonly="readonly" type="text">
                            </div>
                         </div>
-                        <div class="col-md-2">
+                        <div class="col-md-3">
                            <div class="input-group">
                               <span class="input-group-addon">Estado</span>
-                              <input id="estado" name="estado" class="form-control" placeholder="" required=""  readonly="readonly" type="text">
+                              <input id="estado" name="estado" class="form-control" placeholder="" required="" readonly="readonly" type="text">
                            </div>
                         </div>
                      </div>
-                     <div class="form-group">
-                        <label class="col-md-2 control-label" for="Nome">
-                           Responsavel Pela Indicação 
-                           <h11>*</h11>
-                        </label>
-                        <div class="col-md-8">
-                           <input id="indicacao" name="indicacao" placeholder="" class="form-control input-md" required="" type="text">
-                        </div>
+                  </div>
+                  <div class="form-group">
+                     <label class="col-md-2 control-label" for="Nome">
+                        Responsavel Pela Indicação 
+                        <h11>*</h11>
+                     </label>
+                     <div class="col-md-8">
+                        <input id="indicacao" name="indicacao" placeholder="" class="form-control input-md" required="" type="text">
                      </div>
                   </div>
-                  <!-- Button (Double) -->
-                  <div class="form-group">
-                     <label class="col-md-2 control-label" for="Cadastrar"></label>
-                     <div class="col-md-8">
-                        <button id="Cadastrar" name="Cadastrar" class="btn btn-success" type="Submit">Cadastrar</button>
-                        <button id="Cancelar" name="Cancelar" class="btn btn-danger" type="Reset">Cancelar</button>
-
-                        
-                  </div>
-
-                  <div class="form-group">
-                 
-
-                  <div>
                </div>
+               <!-- Button (Double) -->
+               <div class="form-group">
+               <label class="col-md-2 control-label" for="Cadastrar"></label>
+               <div class="col-md-8">
+                  <button id="Cadastrar" name="Cadastrar" class="btn btn-success" type="Submit">Cadastrar</button>
+                  <button id="Cancelar" name="Cancelar" class="btn btn-danger" type="Reset">Cancelar</button>
+               </div>
+               <div class="form-group">
+                  <div>
+                  </div>
                </div>
             </fieldset>
-            
          </form>
          <form action="../admin/painel/index.php">
             <input type="submit"  class="btn btn-danger" style="   
@@ -226,7 +235,6 @@
                background-color: #E6C972!important;
                border-color: #E6C972;!important" value="Painel Administrativo"/>
          </form>
-
    </body>
 </html>
 <?php
